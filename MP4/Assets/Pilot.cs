@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pilot : MonoBehaviour {
-    public float speed = 30.0f;
+    public float speed = 30.0f;//, bspeed = 100f;
+    //public GameObject bullet;
 	// Use this for initialization
 	void Start () {
+        //bullet.SetActive(false);
         Debug.Log("plane pilot script added to:" + gameObject.name);
 	}
 	
@@ -15,17 +17,17 @@ public class Pilot : MonoBehaviour {
         //speed -= transform.forward.y * Time.deltaTime * 15.0f;
         //if (speed < 5.0f) speed = 5.0f;
         
-        speed += OVRInput.Get(OVRInput.RawAxis1D.RIndexTrigger) * Time.deltaTime * 15.0f;
+        speed += OVRInput.Get(OVRInput.Axis1D.SecondaryHandTrigger) * Time.deltaTime * 15.0f;
         if (speed > 80.0f) speed = 80.0f;
         
         
-        speed -= OVRInput.Get(OVRInput.RawAxis1D.LIndexTrigger) * Time.deltaTime * 15.0f;
+        speed -= OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) * Time.deltaTime * 15.0f;
         if (speed < 5.0f) speed = 5.0f;
         
 
-        transform.Rotate(0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y, 
-                         0.10f * OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x, 
-                         0.10f * -OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x);
+        transform.Rotate(0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y,
+                         0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x,
+                         -0.10f * OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x);
 		
 	}
 }
