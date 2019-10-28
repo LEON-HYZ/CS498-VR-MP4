@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
+    public GameObject bulletEmitter;
+    public GameObject bulletEmitter2;
     public GameObject bullet;
-    public float bspeed = 100f;
+    public float bulletSpeed = 5000.0f;
 	// Use this for initialization
 	void Start () {
         bullet.SetActive(true);
@@ -14,11 +16,24 @@ public class Bullet : MonoBehaviour {
 	void Update () {
         if (OVRInput.GetDown(OVRInput.RawButton.RIndexTrigger))
         {
+            GameObject tempBulletHandler = Instantiate(bullet, bulletEmitter.transform.position, bulletEmitter.transform.rotation) as GameObject;
+            //tempBulletHandler.transform.Rotate(Vector3.left * 90);
+
+            Rigidbody TempRigidbody = tempBulletHandler.GetComponent<Rigidbody>();
             
-            GameObject instBullet = Instantiate(bullet, bullet.transform.position, bullet.transform.rotation) as GameObject;
-            Rigidbody instBulletRigidbody = instBullet.GetComponent<Rigidbody>();
-            instBulletRigidbody.AddForce(new Vector3 (bullet.transform.rotation.x, bullet.transform.rotation.y, bullet.transform.rotation.z) * bspeed);//-bullet.transform.forward
-            
+            TempRigidbody.AddForce(transform.forward.normalized * bulletSpeed);// * Time.deltaTime
+            Destroy(tempBulletHandler, 5.0f);            
+        }
+
+        if (OVRInput.GetDown(OVRInput.RawButton.LIndexTrigger))
+        {
+            GameObject tempBulletHandler2 = Instantiate(bullet, bulletEmitter2.transform.position, bulletEmitter2.transform.rotation) as GameObject;
+            //tempBulletHandler.transform.Rotate(Vector3.left * 90);
+
+            Rigidbody TempRigidbody2 = tempBulletHandler2.GetComponent<Rigidbody>();
+
+            TempRigidbody2.AddForce(transform.forward.normalized * bulletSpeed);// * Time.deltaTime
+            Destroy(tempBulletHandler2, 5.0f);
         }
     }
 }

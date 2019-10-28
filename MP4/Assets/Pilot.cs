@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Pilot : MonoBehaviour {
-    public float speed = 30.0f;//, bspeed = 100f;
+    public float speed = 0.0f;
     //public GameObject bullet;
 	// Use this for initialization
 	void Start () {
@@ -22,7 +22,7 @@ public class Pilot : MonoBehaviour {
         
         
         speed -= OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) * Time.deltaTime * 15.0f;
-        if (speed < 5.0f) speed = 5.0f;
+        if (speed < 5.0f) speed = 0.0f;
         
 
         transform.Rotate(0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y,
