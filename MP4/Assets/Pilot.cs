@@ -23,7 +23,7 @@ public class Pilot : MonoBehaviour {
         
         
         speed -= OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger) * Time.deltaTime * 15.0f;
-        if (speed < 5.0f) speed = 0.0f;
+        if (speed < 5.0f) speed = 5.0f;
         
 
         transform.Rotate(0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y,
