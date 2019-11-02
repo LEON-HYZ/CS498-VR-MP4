@@ -180,7 +180,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: QUIT
+  m_Text: Y - QUIT
 --- !u!222 &163624522
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -653,7 +653,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -0.69}
-  m_SizeDelta: {x: 4, y: 2}
+  m_SizeDelta: {x: 5, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251814969
 MonoBehaviour:
@@ -895,7 +895,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: PLAY
+  m_Text: X - PLAY
 --- !u!222 &1319201351
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 1934639769}
   - component: {fileID: 1934639768}
   m_Layer: 5
-  m_Name: Start
+  m_Name: Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1071,7 +1071,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1.75}
-  m_SizeDelta: {x: 4, y: 2}
+  m_SizeDelta: {x: 5, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1934639768
 MonoBehaviour:

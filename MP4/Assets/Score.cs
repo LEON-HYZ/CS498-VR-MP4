@@ -17,7 +17,11 @@ public class Score : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        score.text = "MyScore: " + scoreValue;
+        if (!GameOver.isGameOver)
+        {
+            score.text = "MyScore: " + scoreValue;
+        }
+        
     }
 
 }

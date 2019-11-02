@@ -23,6 +23,7 @@ public class ShootingGame : MonoBehaviour
             if(isCollided == 1)
             {
                 Score.scoreValue += 5;
+                //Debug.Log("1");
                 isCollided = 0;
 
             }
@@ -33,6 +34,7 @@ public class ShootingGame : MonoBehaviour
                 sphere.SetActive(true);
                 startTime = 0f;
                 sphereIsActive = 1;
+                coll.isTrigger = true;
             }
         }
 
@@ -42,6 +44,8 @@ public class ShootingGame : MonoBehaviour
         sphere.SetActive(false);
         sphereIsActive = 0;
         isCollided = 1;
+        coll.isTrigger = false;
+        //Debug.Log("2");
         
     }
 

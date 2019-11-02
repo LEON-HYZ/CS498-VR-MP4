@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour {
 
     public static bool GameIsPaused = false;
+    public static bool GameIsUnpaused = true;
     public GameObject pauseMenuUI;
 
 	// Use this for initialization
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (OVRInput.GetDown(OVRInput.RawButton.Start) ||   Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused)
             {
@@ -26,16 +27,45 @@ public class PauseMenu : MonoBehaviour {
                 Pause();
             }
         }
-		
-	}
 
-   public void Resume()
+        if (GameIsPaused && OVRInput.GetDown(OVRInput.RawButton.A))
+        {
+            Resume();
+        }
+        if (GameIsPaused && OVRInput.GetDown(OVRInput.RawButton.X))
+        {
+            Restart();
+        }
+        if (GameIsPaused && OVRInput.GetDown(OVRInput.RawButton.B))
+        {
+            LoadMenu();
+        }
+        if (GameIsPaused && OVRInput.GetDown(OVRInput.RawButton.Y))
+        {
+            QuitGame();
+        }
+
+
+
+    }
+
+    public void Resume()
     {
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
 
     }
+
+    public void Restart()
+    {
+        Debug.Log("Restarting Game...");
+        Score.scoreValue = 0;
+        Time.timeScale = 1f;
+        //pcoll.isTrigger = true;
+        SceneManager.LoadScene("CS498HW4");
+    }
+
     void Pause()
     {
         pauseMenuUI.SetActive(true);
