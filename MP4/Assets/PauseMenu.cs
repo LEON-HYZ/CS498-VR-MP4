@@ -60,6 +60,7 @@ public class PauseMenu : MonoBehaviour {
     public void Restart()
     {
         Debug.Log("Restarting Game...");
+        Menu.isTutorial = false;
         Score.scoreValue = 0;
         Time.timeScale = 1f;
         //pcoll.isTrigger = true;

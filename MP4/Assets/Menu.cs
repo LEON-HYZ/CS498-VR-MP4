@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour {
-
+    public static bool isTutorial = false;
     // Use this for initialization
 
 	void Start () {
@@ -22,16 +22,34 @@ public class Menu : MonoBehaviour {
         {
             QuitGame();
         }
+        if (OVRInput.GetDown(OVRInput.RawButton.A))
+        {
+            TutorialMode();
+        }
     }
 
     public void LoadGame()
     {
         Debug.Log("Loading Game...");
+        isTutorial = false;
+        Tutorial.isTutorial3 = true;
         Time.timeScale = 1f;
         Score.scoreValue = 0;
         GameOver.isGameOver = false;
         SceneManager.LoadScene("CS498HW4");
     }
+
+    public void TutorialMode()
+    {
+        Debug.Log("Loading Tutorial Mode");
+        isTutorial = true;
+        Tutorial.isTutorial3 = false;
+        Time.timeScale = 1f;
+        Score.scoreValue = 0;
+        GameOver.isGameOver = false;
+        SceneManager.LoadScene("CS498HW4");
+    }
+
     public void QuitGame()
     {
         Debug.Log("Quiting Game...");
@@ -41,4 +59,5 @@ public class Menu : MonoBehaviour {
             Application.Quit();
         #endif
     }
+
 }

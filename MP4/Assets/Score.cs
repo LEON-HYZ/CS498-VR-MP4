@@ -10,14 +10,16 @@ public class Score : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        score.text = "MyScore: 0";
+        if (!Menu.isTutorial) {
+            score.text = "MyScore: 0";
+        }
         
     }
 	
 	// Update is called once per frame
 	void Update () {
 
-        if (!GameOver.isGameOver)
+        if (!GameOver.isGameOver && !Menu.isTutorial)
         {
             score.text = "MyScore: " + scoreValue;
         }
