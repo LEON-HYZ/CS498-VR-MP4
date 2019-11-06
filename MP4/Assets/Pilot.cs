@@ -32,7 +32,8 @@ public class Pilot : MonoBehaviour {
 
         transform.Rotate(0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).y,
                          0.10f * OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick).x,
-                         -0.10f * OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x);
-		
-	}
+                         -0.10f * OVRInput.Get(OVRInput.Axis2D.SecondaryThumbstick).x);//-0.10f * OVRInput.GetLocalControllerRotation(OVRInput.Controller.RTouch));
+
+
+    }
 }
